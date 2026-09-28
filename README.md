@@ -1,1 +1,0 @@
-# ucm-trip-planner
