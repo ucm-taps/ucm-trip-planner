@@ -1,5 +1,4 @@
-<style type="text/css">
-  * {
+<style type="text/css">* {
   box-sizing: border-box;
 }
 
@@ -991,40 +990,61 @@ body {
   }
 }
 
+/* =========================================================
+   REMOVE BLUE BACKGROUND FROM TEXT INPUTS
+   ========================================================= */
+
+#trip-planner #start,
+#trip-planner #end {
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #333 !important;
+}
+
+/* Browser autofill */
+#trip-planner #start:-webkit-autofill,
+#trip-planner #end:-webkit-autofill,
+#trip-planner #start:-webkit-autofill:hover,
+#trip-planner #end:-webkit-autofill:hover,
+#trip-planner #start:-webkit-autofill:focus,
+#trip-planner #end:-webkit-autofill:focus {
+  -webkit-text-fill-color: #333 !important;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  box-shadow: 0 0 0 1000px #fff inset !important;
+  background-color: #fff !important;
+  background: #fff !important;
+}
+
+
+#trip-planner #start:focus,
+#trip-planner #end:focus {
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #333 !important;
+  outline: none;
+  border-color: #005B99;
+}
 </style>
-
-<div id="trip-planner">
-	<!--<p style="text-align:center">The UC Merced Trip Planner helps users find transit routes and schedules using CatTracks, Route UC, and Merced The Bus services.</p>-->
-
+<div id="trip-planner"><!--<p style="text-align:center">The UC Merced Trip Planner helps users find transit routes and schedules using CatTracks, Route UC, and Merced The Bus services.</p>-->
 	<div class="locgrid">
 		<div class="field">
-        <h2><label for="start">Start Location:</label></h2>
+			<h2><label for="start">Start Location:</label></h2>
 
-        <div class="input-clear-wrap">
-            <input autocomplete="off" id="start" placeholder="Start location" type="search" />
-            <button class="clear-input" id="clearStart" type="button" aria-label="Clear start location">×</button>
-        </div>
+			<div class="input-clear-wrap"><input autocomplete="off" id="start" placeholder="Start location" type="search" /><button aria-label="Clear start location" class="clear-input" id="clearStart" type="button">&times;</button></div>
 
-        <div class="drop" id="startDrop">&nbsp;</div>
-    </div>
+			<div class="drop" id="startDrop">&nbsp;</div>
+		</div>
 
-
-    <div class="swapcell">
-      <button class="swap" id="swap" title="Swap locations" type="button">⇄</button>
-    </div>
-
+		<div class="swapcell"><button class="swap" id="swap" title="Swap locations" type="button">⇄</button></div>
 
 		<div class="field">
-      <h2><label for="end">End Location:</label></h2>
+			<h2><label for="end">End Location:</label></h2>
 
-      <div class="input-clear-wrap">
-          <input autocomplete="off" id="end" placeholder="End location" type="search" />
-          <button class="clear-input" id="clearEnd" type="button" aria-label="Clear destination">×</button>
-      </div>
+			<div class="input-clear-wrap"><input autocomplete="off" id="end" placeholder="End location" type="search" /><button aria-label="Clear destination" class="clear-input" id="clearEnd" type="button">&times;</button></div>
 
-      <div class="drop" id="endDrop">&nbsp;</div>
-    </div>
-</div>
+			<div class="drop" id="endDrop">&nbsp;</div>
+		</div>
+	</div>
 
 	<div class="timegrid">
 		<div>
@@ -1145,7 +1165,7 @@ body {
               ]
             },
             {
-              route: "FastCat 1",
+              route: "FastCat",
               weekday: [
                 {stop: "University Surgery Center", times:                    [395, 459, 538, 602, 666, 745, 809, 876, 940, 1019, 1083, 1147, 1211, 1290, 1354]},
                 {stop: "Promenade Center", times:                             [399, 463, 542, 606, 670, 749, 813, 880, 944, 1023, 1087, 1151, 1215, 1294, 1358]},
@@ -1492,7 +1512,96 @@ body {
                 {stop: "Golden Valley Health Centers", times: [499, 578, 668, 758, 848, 938, 1028]},
                 {stop: "Merced Transpo", times: [567, 657, 747, 837, 927, 1017]},
               ]
-            }
+            },
+              {
+              route: "M-4",
+              weekday: [
+                {stop: "Merced Transpo", times: [390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720, 750, 780, 810, 840, 870, 900, 930, 960, 990, 1020, 1050, 1080, 1110, 1140, 1170]},
+                {stop: "East Campus Yosemite High School", times: [393, 423, 453, 483, 513, 543, 573, 603, 633, 663, 693, 723, 753, 783, 813, 843, 873, 903, 933, 963, 993, 1023, 1053, 1083, 1113, 1143]},
+                {stop: "G St. at Olive Ave. (Taco Bell)", times: [398, 428, 458, 488, 518, 548, 578, 608, 638, 668, 698, 728, 758, 788, 818, 848, 878, 908, 938, 968, 998, 1028, 1058, 1088, 1118, 1148]},
+                {stop: "Mercy Medical Center", times: [364, 407, 437, 467, 497, 527, 557, 587, 617, 647, 677, 707, 737, 767, 797, 827, 857, 887, 917, 947, 977, 1007, 1037, 1067, 1097, 1127, 1157]},
+                {stop: "Merced College", times: [369, 412, 442, 472, 502, 532, 562, 592, 622, 652, 682, 712, 742, 772, 802, 832, 862, 892, 922, 952, 982, 1012, 1042, 1072, 1102, 1132, 1162]},
+                {stop: "Park & Ride Bellevue Ave", times: [371, 418, 448, 478, 508, 538, 568, 598, 628, 658, 688, 718, 748, 778, 808, 838, 868, 898, 928, 958, 988, 1018, 1048, 1078, 1108, 1138, 1168]},
+                {stop: "G St. at Yosemite Ave.", times: [375, 430, 460, 490, 520, 550, 580, 610, 640, 670, 700, 730, 760, 790, 820, 850, 880, 910, 940, 970, 1000, 1030, 1060, 1090, 1120, 1150, 1180]},
+                {stop: "G St. at Olive Ave. (Savemart)", times: [378, 433, 463, 493, 523, 553, 583, 613, 643, 673, 703, 733, 763, 793, 823, 853, 883, 913, 943, 973, 1003, 1033, 1063, 1093, 1123, 1153, 1183]},
+                {stop: "Merced Transpo", times: [384, 422, 452, 482, 512, 542, 572, 602, 632, 662, 692, 722, 752, 782, 812, 842, 872, 902, 932, 962, 992, 1022, 1052, 1082, 1112, 1142, 1172]}
+              ],
+              weekend: [
+                {stop: "Merced Transpo", times: [480, 540, 600, 660, 720, 780, 840, 900, 960, 1020]},
+                {stop: "East Campus Yosemite High School", times: [483, 543, 603, 663, 723, 783, 843, 903, 963, 1023]},
+                {stop: "G St. at Olive Ave. (Taco Bell)", times: [488, 548, 608, 668, 728, 788, 848, 908, 968, 1028]},
+                {stop: "Mercy Medical", times: [497, 559, 619, 679, 739, 799, 859, 919, 979, 1039]},
+                {stop: "Merced College", times: [502, 564, 624, 684, 744, 804, 864, 924, 984, 1044]},
+                {stop: "Park & Ride Bellevue Ave", times: [508, 570, 630, 690, 750, 810, 870, 930, 990, 1050]},
+                {stop: "G St. at Yosemite Ave.", times: [520, 580, 640, 700, 760, 820, 880, 940, 1000, 1060]},
+                {stop: "G St. at Olive Ave. (Savemart)", times: [523, 583, 643, 703, 763, 823, 883, 943, 1003, 1063]},
+                {stop: "Merced Transpo", times: [532, 572, 632, 692, 752, 812, 872, 932, 992, 1052]}
+              ]
+            },
+
+            {
+              route: "M-5",
+              weekday: [
+                {stop: "Merced Transpo", times: [405, 435, 465, 495, 525, 555, 585, 615, 645, 675, 705, 735, 765, 795, 825, 855, 885, 915, 945, 975, 1005, 1035, 1065, 1095, 1125, 1155, 1185]},
+                {stop: "The Bus MCAG Office", times: [408, 438, 468, 498, 528, 558, 588, 618, 648, 678, 708, 738, 768, 798, 828, 858, 888, 918, 948, 978, 1008, 1038, 1068, 1098, 1128, 1158, 1188]},
+                {stop: "Amtrak Station", times: [413, 443, 473, 503, 533, 563, 593, 623, 653, 683, 713, 743, 773, 803, 833, 863, 893, 923, 953, 983, 1013, 1043, 1073, 1103, 1133, 1163, 1193]},
+                {stop: "Rancho San Miguel", times: [336, 421, 451, 481, 511, 541, 571, 601, 631, 661, 691, 721, 751, 781, 811, 841, 871, 901, 931, 961, 991, 1021, 1051, 1081, 1111, 1141, 1171]},
+                {stop: "The Grove Apartments", times: [365, 430, 460, 490, 520, 550, 580, 610, 640, 670, 700, 730, 760, 790, 820, 850, 880, 910, 940, 970, 1000, 1030, 1060, 1090, 1120, 1150, 1180]},
+                {stop: "Motel Drive", times: [369, 434, 464, 494, 524, 554, 584, 614, 644, 674, 704, 734, 764, 794, 824, 854, 884, 914, 944, 974, 1004, 1034, 1064, 1094, 1124, 1154, 1184]},
+                {stop: "Amtrak Station", times: [380, 440, 470, 500, 530, 560, 590, 620, 650, 680, 710, 740, 770, 800, 830, 860, 890, 920, 950, 980, 1010, 1040, 1070, 1100, 1130, 1160, 1190]},
+                {stop: "Merced Transpo", times: [385, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720, 750, 780, 810, 840, 870, 900, 930, 960, 990, 1020, 1050, 1080, 1110, 1140, 1170, 1200]}
+              ],
+              weekend: [
+                {stop: "Merced Transpo", times: [510, 570, 630, 690, 750, 810, 870, 930, 990, 1050]},
+                {stop: "The Bus MCAG Office", times: [513, 573, 633, 693, 753, 813, 873, 933, 993, 1053]},
+                {stop: "Amtrak Station", times: [518, 578, 638, 698, 758, 818, 878, 938, 998, 1058]},
+                {stop: "Rancho San Miguel", times: [526, 586, 646, 706, 766, 826, 886, 946, 1006, 1066]},
+                {stop: "The Grove Apartments", times: [535, 595, 655, 715, 775, 835, 895, 955, 1015, 1075]},
+                {stop: "Motel Drive", times: [541, 601, 661, 721, 781, 841, 901, 961, 1021, 1081]},
+                {stop: "Amtrak Station", times: [552, 612, 672, 732, 792, 852, 912, 972, 1032, 1092]},
+                {stop: "Merced Transpo", times: [557, 617, 677, 737, 797, 857, 917, 977, 1037, 1097]}
+              ]
+            },
+
+            {
+              route: "M-6",
+              weekday: [
+                {stop: "Merced Transpo", times: [465, 510, 540, 585, 615, 660, 690, 735, 765, 810, 840, 885, 915, 960, 990, 1035, 1065, 1110, 1140, 1185]},
+                {stop: "27th & Green St.", times: [421, 474, 519, 564, 609, 654, 699, 744, 789, 834, 879, 924, 969, 1014, 1059, 1104, 1149, 1194]},
+                {stop: "Santa Fe at Reef Apartments", times: [426, 479, 524, 569, 614, 659, 704, 749, 794, 839, 884, 929, 974, 1019, 1064, 1109, 1154, 1199]},
+                {stop: "Alexander Ave & Parsons Ave", times: [435, 488, 533, 578, 623, 668, 713, 758, 803, 848, 893, 938, 983, 1028, 1073, 1118, 1163, 1208]},
+                {stop: "G St. at Olive Ave. (Savemart)", times: [438, 491, 536, 581, 626, 671, 716, 761, 806, 851, 896, 941, 986, 1031, 1076, 1121, 1166, 1211]},
+                {stop: "Merced Transpo", times: [445, 498, 543, 588, 633, 678, 723, 768, 813, 858, 903, 948, 993, 1038, 1083, 1128, 1173, 1218]}
+              ],
+              weekend: [
+                {stop: "Merced Transpo", times: [510, 555, 600, 645, 690, 735, 780, 825, 870, 915, 960, 1005, 1050]},
+                {stop: "27th & Green St.", times: [519, 564, 609, 654, 699, 744, 789, 834, 879, 924, 969, 1014]},
+                {stop: "Santa Fe at Reef Apartments", times: [524, 569, 614, 659, 704, 749, 794, 839, 884, 929, 974, 1019]},
+                {stop: "Alexander Ave & Parsons Ave", times: [533, 578, 623, 668, 713, 758, 803, 848, 893, 938, 983, 1028]},
+                {stop: "G St. at Olive Ave. (Savemart)", times: [536, 581, 626, 671, 716, 761, 806, 851, 896, 941, 986, 1031]},
+                {stop: "Merced Transpo", times: [543, 588, 633, 678, 723, 768, 813, 858, 903, 948, 993, 1038]}
+              ]
+            },
+
+            {
+              route: "M-7",
+              weekday: [
+                {stop: "Merced Transpo", times: [400, 440, 485, 520, 555, 590, 625, 660, 695, 730, 765, 800, 835, 870, 905, 940, 975, 1010, 1045, 1080, 1115, 1150, 1185]},
+                {stop: "B St. at Childs Ave", times: [411, 451, 496, 531, 566, 601, 636, 671, 706, 741, 776, 811, 846, 881, 916, 951, 986, 1021, 1056, 1091, 1126, 1161, 1196]},
+                {stop: "G St. at Carmen Way (Brooks Park)", times: [418, 458, 503, 538, 573, 608, 643, 678, 713, 748, 783, 818, 853, 888, 923, 958, 993, 1028, 1063, 1098, 1133, 1168, 1203]},
+                {stop: "Rescue Mission", times: [419, 459, 504, 539, 574, 609, 644, 679, 714, 749, 784, 819, 854, 889, 924, 959, 994, 1029, 1064, 1099, 1134, 1169, 1204]},
+                {stop: "D St. Apartments", times: [427, 467, 512, 547, 582, 617, 652, 687, 722, 757, 792, 827, 862, 897, 932, 967, 1002, 1037, 1072, 1107, 1142, 1177, 1212]},
+                {stop: "Merced Transpo", times: [429, 469, 514, 549, 584, 619, 654, 689, 724, 759, 794, 829, 864, 899, 934, 969, 1004, 1039, 1074, 1109, 1144, 1179, 1214]}
+              ],
+              weekend: [
+                {stop: "Merced Transpo", times: [510, 550, 595, 640, 685, 730, 775, 820, 865, 910, 955, 1000, 1045, 1090]},
+                {stop: "B St. at Childs Ave", times: [521, 561, 606, 651, 696, 741, 786, 831, 876, 921, 966, 1011, 1056, 1101]},
+                {stop: "G St. at Carmen Way (Brooks Park)", times: [528, 568, 613, 658, 703, 748, 793, 838, 883, 928, 973, 1018, 1063, 1108]},
+                {stop: "Rescue Mission", times: [529, 569, 614, 659, 704, 749, 794, 839, 884, 929, 974, 1019, 1064, 1109]},
+                {stop: "D St. Apartments", times: [537, 577, 622, 667, 712, 757, 802, 847, 892, 937, 982, 1027, 1072, 1117]},
+                {stop: "Merced Transpo", times: [539, 579, 624, 669, 714, 759, 804, 849, 894, 939, 984, 1029, 1074, 1119]}
+              ]
+            },
           ];
 
       
